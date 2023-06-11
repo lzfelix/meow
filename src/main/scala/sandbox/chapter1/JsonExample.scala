@@ -1,4 +1,4 @@
-package sandbox
+package sandbox.chapter1
 
 object JsonExample {
 
@@ -95,7 +95,7 @@ object JsonExample {
   final case class Person(name: String, age: Double, email: Option[String])
   object Person {
     // Using local imports just to make it explicit where they are used
-    import sandbox.JsonExample.JsonWriteInstances.{optionWriter, stringWriter}
+    import JsonExample.JsonWriteInstances.{optionWriter, stringWriter}
 
     implicit val personWriter: JsonWriter[Person] = new JsonWriter[Person] {
       override def write(value: Person): Json = {
@@ -123,12 +123,8 @@ object JsonExample {
 
   def main(args: Array[String]): Unit = {
     // Using local imports just to make it explicit where they are used
-    import sandbox.JsonExample.Extensions.JsonWriterOps
-    import sandbox.JsonExample.JsonWriteInstances.{
-      objectWriter,
-      decimalWriter,
-      intWriter
-    }
+    import JsonExample.Extensions.JsonWriterOps
+    import JsonExample.JsonWriteInstances.{decimalWriter, intWriter, objectWriter}
 
     val validEmail: Option[String] = Option("smith.john@mailprovider.com")
 

@@ -1,10 +1,7 @@
-package sandbox
+package sandbox.chapter1
 
-import sandbox.PrintableLibrary.PrintableInstances.{
-  printableInt,
-  printableString
-}
-import sandbox.PrintableLibrary.PrintableSyntax.PrintableOps
+import sandbox.chapter1.PrintableLibrary.PrintableInstances.{printableInt, printableString}
+import sandbox.chapter1.PrintableLibrary.PrintableSyntax.PrintableOps
 
 object PrintableLibrary {
 

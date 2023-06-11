@@ -19,5 +19,5 @@ Copyright Anonymous Aardvark. Licensed [CC0 1.0][license].
 > specific behavior. It requires, however, the language supports extension methods (`implicit`s in Scala).
 > [More details here](https://docs.scala-lang.org/scala3/book/ca-type-classes.html).
 
-1. [JsonExample](src/main/scala/sandbox/JsonExample.scala): Basic example on scala `implicits`
-2. [PrintableLibrary](src/main/scala/sandbox/PrintableLibrary.scala): First exercise on type classes
+1. [JsonExample](src/main/scala/sandbox/chapter1/JsonExample.scala): Basic example on scala `implicits`
+2. [PrintableLibrary](src/main/scala/sandbox/chapter1/PrintableLibrary.scala): First exercise on type classes
