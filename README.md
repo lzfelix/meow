@@ -7,9 +7,9 @@ Copyright Anonymous Aardvark. Licensed [CC0 1.0][license].
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)][gitter]
 
-## Table of Contents
 
-### Chapter 1. Introduction / Type classes
+
+# Chapter 1. Introduction / Type classes
 
 > Type classes are a Functional Programming (FP) construct (do not confuse with a regular `class`) allowing the
 > description of an expected behavior over a type we don't own. In Scala, they are created through a type-parametrized
@@ -23,15 +23,33 @@ Copyright Anonymous Aardvark. Licensed [CC0 1.0][license].
 2. [PrintableLibrary](src/main/scala/sandbox/chapter1/PrintableLibrary.scala): First exercise on type classes
 
 
+# Chapter 2. Monoids and Semigroups
+
+## Semigroup
+> A semigroup is a set (aka. type) equipped with a binary operation, such that:
+> - The operation must always have type `(A, A) -> A`
+>   - Integer addition is a suffices, because we can't add two integers and get a non-integer;
+>   - Integer division doesn't, because there are at least two integers `a, b` such that `a / b` is not an integer
+> - The binary operation must be associative
+>   - Integer addition is associative because `a + (b + c) = (a + b) + c`
+>   - Integer subtraction is not associative because `a - (b - c) != (a - b) - c`
+>   - String concatenation is associative because `a ++ (b ++ c) == (a ++ b) ++ c`
+>   - Recall **association** means grouping, **commutation** means swapping:
+>     - Association: `(a ++ b) ++ c = a ++ (b ++ c)`
+>     - Commutation: `(a ++ b) ++ c != (a ++ c) ++ b`
+>     - String concatenation, for instance, is associative, but not commutative.
+
+## Monoid
+> A monoid is a semigroup containing an identity (empty) element on the set `A`:
+> - Under integer addition, `0` is the empty (identity) element because for any integer `a`, `a + 0 = a`
+> - Under integer multiplication, `1` is empty element following the same rationale
+
+1. [BooleanMonoidss](./src/main/scala/sandbox/chapter2/BooleanMonoids.scala)
+2. 
+
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
 [underscore]: https://underscore.io
-[book]: https://underscore.io/books/advanced-scala
+[book]: https://www.scalawithcats.com/dist/scala-with-cats.pdf
 [license]: https://creativecommons.org/publicdomain/zero/1.0/
-[sbt]: http://scala-sbt.org
 [gitter]: https://gitter.im/underscoreio/scala?utm_source=essential-scala-readme&utm_medium=badge&utm_campaign=essential-scala
-[atom]: https://atom.io
-[scala-ide]: http://scala-ide.org
-[sbteclipse]: https://github.com/typesafehub/sbteclipse
-[intellij-idea]: https://www.jetbrains.com/idea
-[intellij-setup]: https://www.jetbrains.com/help/idea/2016.1/getting-started-with-sbt.html#import_project
