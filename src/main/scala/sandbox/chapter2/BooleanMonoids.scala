@@ -28,7 +28,4 @@ object BooleanMonoids {
         (x && !y) || (!x && y)
     }
   }
-
-  def x(): Unit = {}
-
 }
