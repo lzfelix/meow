@@ -44,8 +44,8 @@ Copyright Anonymous Aardvark. Licensed [CC0 1.0][license].
 > - Under integer addition, `0` is the empty (identity) element because for any integer `a`, `a + 0 = a`
 > - Under integer multiplication, `1` is empty element following the same rationale
 
-1. [BooleanMonoidss](./src/main/scala/sandbox/chapter2/BooleanMonoids.scala)
-2. 
+1. [BooleanMonoidss](./src/main/scala/sandbox/chapter2/BooleanMonoids.scala): Implements boolean operations as monoids
+2. [MonadAddition](./src/main/scala/sandbox/chapter2/MonadAddition.scala): Implements addition over list as a monoid
 
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
