@@ -1,12 +1,11 @@
 package sandbox.chapter2
 
 import cats.instances.int._
-import cats.instances.tuple._
 import cats.syntax.semigroup._
 import cats.{Eq, Monoid}
 import cats.implicits.catsSyntaxEq
 
-object MonadAddition {
+object MonoidAddition {
   def add(l: List[Int]): Int = l.reduce(_ |+| _)
 
   def smartAdd[A](l: List[A])(implicit monoid: Monoid[A]): A = {
