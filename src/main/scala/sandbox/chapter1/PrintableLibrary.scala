@@ -1,7 +1,7 @@
 package sandbox.chapter1
 
-import sandbox.chapter1.PrintableLibrary.PrintableInstances.{printableInt, printableString}
-import sandbox.chapter1.PrintableLibrary.PrintableSyntax.PrintableOps
+import PrintableLibrary.PrintableInstances.{printableInt, printableString}
+import PrintableLibrary.PrintableSyntax.PrintableOps
 
 object PrintableLibrary {
 
