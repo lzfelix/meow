@@ -58,7 +58,7 @@ class BooleanMonoidsTest extends AnyFlatSpec {
     commutativeLawForAll(allBoolTriplets)
   }
 
-  "identity law" should "hold for Monoid(Xor, ||" in {
+  "identity law" should "hold for Monoid(Boolean, xor" in {
     import sandbox.chapter2.BooleanMonoids.Monoid.booleanXor
     identityLawForAll(Seq(true, false))
   }
