@@ -120,25 +120,4 @@ object JsonExample {
       def toJson(implicit w: JsonWriter[A]): Json = w.write(value)
     }
   }
-
-  def main(args: Array[String]): Unit = {
-    // Using local imports just to make it explicit where they are used
-    import JsonExample.Extensions.JsonWriterOps
-    import JsonExample.JsonWriteInstances.{decimalWriter, intWriter, objectWriter}
-
-    val validEmail: Option[String] = Option("smith.john@mailprovider.com")
-
-    println(Person("John Smith", 41.7, validEmail).toJson)
-    println(Person("John Smith", 41.7, None).toJson)
-    // Result:
-    // JsObject(Map(name -> JsString(John Smith), age -> JsNumber(41.7), email -> JsString(smith.john@mailprovider.com)))
-    // JsObject(Map(name -> JsString(John Smith), age -> JsNumber(41.7), email -> null))
-
-    println(Map("ab" -> 456d, "ef" -> 123d).toJson)
-    // JsObject(Map(ab -> JsDecimal(456.0), ef -> JsDecimal(123.0)))
-
-    // For instance, we don't have access to the Int class, but due the
-    // extension method, `.toJson` can now be used over it :)
-    println(10.toJson)
-  }
 }
