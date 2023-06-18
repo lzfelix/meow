@@ -25,7 +25,7 @@ specific behavior. It requires, however, the language supports extension methods
 
 # Chapter 2. Monoids and Semigroups
 
-## Semigroup
+## Semigroups
 A semigroup is a set (aka. type) equipped with a binary operation, such that:
 - The operation must always have type `(A, A) -> A`
   - Integer addition is a suffices, because we can't add two integers and get a non-integer;
@@ -39,7 +39,7 @@ A semigroup is a set (aka. type) equipped with a binary operation, such that:
     - Commutation: `(a ++ b) ++ c != (a ++ c) ++ b`
     - String concatenation, for instance, is associative, but not commutative.
 
-## Monoid
+## Monoids
 A monoid is a semigroup containing an identity (empty) element on the set `A`:
 - Under integer addition, `0` is the empty (identity) element because for any integer `a`, `a + 0 = a`
 - Under integer multiplication, `1` is empty element following the same rationale
@@ -47,6 +47,32 @@ A monoid is a semigroup containing an identity (empty) element on the set `A`:
 1. [BooleanMonoids](./src/main/scala/sandbox/chapter2/BooleanMonoids.scala): Implements boolean operations as monoids
 2. [MonoidAddition](./src/main/scala/sandbox/chapter2/MonoidAddition.scala): Implements addition over list as a monoid
 
+# Chapter 3. Functors
+
+## Higher Kinded types
+
+Are represented by `T[_]` and are basically parametrized (1+) types, for instance, `List[Int]`. In this, case we say
+`List` is a type constructor (because it takes a parameter), whereas `List[Boolean]` is a type.
+
+## Functors definition
+Functor is a type `F[A]` with a map operation of type `(A => B) => F[B]`. It is as if we had a type `A` wrapped by a
+type `F`, but when we do `F[A].map(A => B)`, the result is still wrapped in `F` again, hence `F[B]`. Functors obey two
+laws:
+- Identity: `fa.map(a -> a) = fa`, aka. calling map with identity does nothing
+- Composition: `fa.map(g(f(_)) == fa.map(f).map(g) == (f o g)(fa)`
+
+Scala `Function1[I, O]` can be seen as a functor if we fix the input parameter `I` and allow the output
+parameter `O` to vary. Namely, let `f: Function1*[O] = Function[I, O]`, because `I` is fixed. Then, we can see `Function1*[O]`
+as a functor that can receive a function (to be used in the map) of type `g: O => U` and return a `Function*[U]`. Under
+the hood, what we have is `Function1*[U] = Function1*[O].map(O => U) = Function1[I, O].map(O => U) = f(g(x))`.
+
+Scala Function1 are functors: `(func1 map func2)(x)`, thus allowing lazy operation chaining. However, Cats allows
+creating functors for any single-parameter kind.
+
+- [FunctorExamples](./src/main/scala/sandbox/chapter3/FunctorExamples.scala): Basic functor examples with function
+chaining
+- [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as
+functors
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
 [underscore]: https://underscore.io
