@@ -73,6 +73,8 @@ creating functors for any single-parameter kind.
 chaining
 - [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as
 functors
+- [PrintableContramap](./src/main/scala/sandbox/chapter3/PrintableContramap.scala): Shows how to define a new
+`Functor[B]` in terms of an already-existing `Functor[A]` though contra-maps.
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
 [underscore]: https://underscore.io
