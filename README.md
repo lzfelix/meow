@@ -21,6 +21,7 @@ specific behavior. It requires, however, the language supports extension methods
 
 1. [JsonExample](src/main/scala/sandbox/chapter1/JsonExample.scala): Basic example on scala `implicits`
 2. [PrintableLibrary](src/main/scala/sandbox/chapter1/PrintableLibrary.scala): First exercise on type classes
+3. [TypeclassesWithCats](src/main/scala/sandbox/chapter1/PrintableLibrary.scala): How to use/declare typeclasses on Cats
 
 
 # Chapter 2. Monoids and Semigroups
@@ -69,11 +70,11 @@ the hood, what we have is `Function1*[U] = Function1*[O].map(O => U) = Function1
 Scala Function1 are functors: `(func1 map func2)(x)`, thus allowing lazy operation chaining. However, Cats allows
 creating functors for any single-parameter kind.
 
-- [FunctorExamples](./src/main/scala/sandbox/chapter3/FunctorExamples.scala): Basic functor examples with function
+1. [FunctorExamples](./src/main/scala/sandbox/chapter3/FunctorExamples.scala): Basic functor examples with function
 chaining
-- [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as
+2. [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as
 functors
-- [PrintableContramap](./src/main/scala/sandbox/chapter3/PrintableContramap.scala): Shows how to define a new
+3. [PrintableContramap](./src/main/scala/sandbox/chapter3/PrintableContramap.scala): Shows how to define a new
 `Functor[B]` in terms of an already-existing `Functor[A]` though contra-maps.
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8

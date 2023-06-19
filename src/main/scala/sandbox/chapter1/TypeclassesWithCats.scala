@@ -3,7 +3,7 @@ package sandbox.chapter1
 import cats.{Eq, Show}
 import cats.syntax.show._
 
-object PrintableWithCats {
+object TypeclassesWithCats {
   final case class Cat(name: String, age: Int, color: String)
   object Cat {
     implicit val catEq: Eq[Cat] =

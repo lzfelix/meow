@@ -2,9 +2,9 @@ package sandbox.chapter1
 
 import cats.implicits.catsSyntaxEq
 import org.scalatest.flatspec.AnyFlatSpec
-import sandbox.chapter1.PrintableWithCats.Cat
+import sandbox.chapter1.TypeclassesWithCats.Cat
 
-class PrintableWithCatsTest extends AnyFlatSpec {
+class TypeclassesWithCatsTest extends AnyFlatSpec {
   private val garfield: Cat = Cat("Garfield", 23, "orange")
   private val garfieldInDisguise: Cat = Cat("Garfield", 7, "black")
 
