@@ -40,6 +40,9 @@ object BranchingWithFunctor {
     }
   }
 
+  // Making Tree[A] a Functor will provide it with a .map() method to specify a
+  // way to construct a new Tree[B] (note it may be the case B == A] by applying
+  // a function f: A => B to every node in the tree
   implicit val treeFunctor: Functor[Tree] = new Functor[Tree] {
     override def map[A, B](fa: Tree[A])(f: A => B): Tree[B] = fa match {
       case Empty()     => Empty()
@@ -51,15 +54,15 @@ object BranchingWithFunctor {
 
   def main(args: Array[String]): Unit = {
     println(Tree.leaf(100).map(_ * 2))
-    println(
-      Tree.toString(
-        Tree
-          .branch(
-            Tree.branch(Tree.leaf(10), Tree.branch(Tree.empty, Tree.leaf(70))),
-            Tree.branch(Tree.leaf(20), Tree.branch(Tree.leaf(30), Tree.empty))
-          )
-          .map(_ * 2)
-      )
+    val baseTree = Tree.branch(
+      Tree.branch(Tree.leaf(1), Tree.branch(Tree.empty, Tree.leaf(7))),
+      Tree.branch(Tree.leaf(2), Tree.branch(Tree.leaf(3), Tree.empty))
     )
+
+    // An example using an f: Int => Int, thus generating a new Tree[Int] from an existing Tree[Int]
+    println(Tree.toString(baseTree.map(_ * 2)))
+
+    // Another example using and g: Int => String, thus generating a new Tree[String] from a Tree[Int]
+    println(Tree.toString(baseTree.map(_.toBinaryString)))
   }
 }
