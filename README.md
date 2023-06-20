@@ -115,6 +115,11 @@ between domains. By specifying `a` and `b` it's possible to construct a new func
    `Functor[B]` in terms of an already-existing `Functor[A]` though contra-maps for the already-seen `Printable[A]` type.
 4. [InvariantFunctorCodec](./src/main/scala/sandbox/chapter3/InvariantFunctorCodec.scala): Shows how bidirectional
    functors and imap works.
+5. [CatsFunctors](./src/main/scala/sandbox/chapter3/CatsFunctors.scala): Shows how to use Cats' functors.
+
+# Chapter 4. Monads
+
+_TODO_
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
 [underscore]: https://underscore.io
