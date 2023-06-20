@@ -92,16 +92,29 @@ Explanation is hard because Cats' functor type is a 1-Kind type, for less-formal
 understand.
 
 ## Invariant Functors and the imap method
-_TODO_
+
+Invariant functors provide a method `F[A].imap(a: A => B, b: B => A): F[B]` where `a` and `b` are conversion functions
+between domains. By specifying `a` and `b` it's possible to construct a new functor type `F[B]`.
+
+## A bridge between Functors and Type naming
+
+- **Covariant type**: means `B` is a subtype of `A`, hence we can always up-cast/coerce/replace `B` into `A`. By
+  analogy, if `F` is a (covariant) functor, whenever we have a `F[B]` and a conversion `B => A`, it's possible to obtain
+  an `F[A]`.
+- **Contravariant type**: is the opposite, meaning `B` is a supertype of `B`. By analogy, a contravariant functor `F[A]`
+  allows providing a mapping `Z => A` and yields a new functor `F[Z]`.
+- **Invariant functor**: combines the case where we can map from `F[A] => F[B]` via a function `A => B` and vice-versa.
 
 ## Chapter exercises
 
-1. [FunctorExamples](./src/main/scala/sandbox/chapter3/FunctorExamples.scala): Basic functor examples with function
-chaining
-2. [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as
-functors
+1. [FunctorExamples](./src/main/scala/sandbox/chapter3/FunctorExamples.scala): Basic functor examples with function 
+   chaining
+2. [BranchingWithFunctor](./src/main/scala/sandbox/chapter3/BranchingWithFunctor.scala): Implements function chaining as 
+   functors
 3. [PrintableContramap](./src/main/scala/sandbox/chapter3/PrintableContramap.scala): Shows how to define a new
-`Functor[B]` in terms of an already-existing `Functor[A]` though contra-maps for the already-seen `Printable[A]` type.
+   `Functor[B]` in terms of an already-existing `Functor[A]` though contra-maps for the already-seen `Printable[A]` type.
+4. [InvariantFunctorCodec](./src/main/scala/sandbox/chapter3/InvariantFunctorCodec.scala): Shows how bidirectional
+   functors and imap works.
 
 [cats-seed]: https://github.com/underscoreio/cats-seed.g8
 [underscore]: https://underscore.io
